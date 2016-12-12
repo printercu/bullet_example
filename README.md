@@ -1,24 +1,21 @@
-# README
+# Sample app for Bullet gem
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+- Clone.
+- `cd`
+- `bin/setup`
 
-* Ruby version
+## Steps to reproduce
 
-* System dependencies
+- `rails s`
+- Open [http://localhost/users/1](http://localhost/users/1)
+- See
 
-* Configuration
+  ```
+  user: max N+1 Query detected User => [:projects] Add to your finder: :includes => [:projects]
+  ```
 
-* Database creation
+## License
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+MIT
