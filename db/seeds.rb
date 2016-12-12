@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.find_or_create_by!(id: 1)
+projects_count = 3
+projects_count.times { user.projects.create! } if user.projects.count < projects_count
