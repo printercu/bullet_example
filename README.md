@@ -4,12 +4,22 @@
 
 - Clone.
 - `cd`
-- `bin/setup`
+- `bin/setup` or `bin/update`
 
 ## Steps to reproduce
 
 - `rails s`
-- Open [http://localhost/users/1](http://localhost/users/1)
+- Open [http://localhost:3000/projects](http://localhost:3000/projects)
+- See 2 warnings.
+- Click links to see different warnings.
+- Remove line with `.order` in `projects/index.html.erb` to see warnings disappear.
+
+## Already fixed:
+
+## Steps to reproduce
+
+- `rails s`
+- Open [http://localhost:3000/users/1](http://localhost:3000/users/1)
 - See
 
   ```

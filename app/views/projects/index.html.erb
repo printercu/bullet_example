@@ -1,0 +1,20 @@
+<%
+source = Project
+source = source.where('manager_id != user_id') if params.key?(:diff)
+source = source.where('manager_id = user_id') if params.key?(:same)
+source = source.where.not(manager_id: nil) if params.key?(:not_null)
+collection = source.includes(:user, :manager)
+collection = collection.order('users.id') # This line produces warning
+collection.find_each do |project| %>
+  Project: <%= project.id %>,
+  User: <%= project.user.id %>,
+  Manager: <%= project.manager.try!(:id) %>
+  <br>
+<% end %>
+
+<ul>
+  <li><%= link_to 'all', projects_path %></li>
+  <li><%= link_to 'not_null', projects_path(not_null: true) %></li>
+  <li><%= link_to 'same', projects_path(same: true) %></li>
+  <li><%= link_to 'different', projects_path(diff: true) %></li>
+</ul>
