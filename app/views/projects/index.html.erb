@@ -5,7 +5,7 @@ source = source.where('manager_id = user_id') if params.key?(:same)
 source = source.where.not(manager_id: nil) if params.key?(:not_null)
 collection = source.includes(:user, :manager)
 collection = collection.order('users.id') # This line produces warning
-collection.find_each do |project| %>
+collection.to_a.each do |project| %>
   Project: <%= project.id %>,
   User: <%= project.user.id %>,
   Manager: <%= project.manager.try!(:id) %>
